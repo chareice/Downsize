@@ -4,7 +4,10 @@ var downsize = require("./"),
 chai.should();
 
 describe("Word-wise truncation", function () {
-
+    it("support chinese downsize",function(){
+        downsize("世界你好", {words: 2})
+            .should.equal("世界");
+    });
     it("should be able to truncate across nested tags", function () {
         downsize("<p>this is a <strong>test of word downsizing</strong></p>", {words: 5})
             .should.equal("<p>this is a <strong>test of</strong></p>");
